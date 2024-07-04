@@ -26,23 +26,27 @@ header {
 }
 
 main {
-  height: 65vh;
+  margin-top: 2%;
+  height: 45vh;
   color: #eee;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
-.left {
+.down {
   width: 52rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2%;
 }
 
-.right {
+.up {
   width: 52rem;
   font-size: 2rem;
+  margin-left: 12%;
 }
 
 /* ELEMENTS STYLE */
@@ -70,9 +74,10 @@ h1 {
 }
 
 .again {
+  visibility: hidden;
   position: absolute;
-  top: 130%;
-  left: 44%;
+  top: 10%;
+  left: 45%;
 }
 
 .guess {
