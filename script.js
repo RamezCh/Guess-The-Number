@@ -13,6 +13,8 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 const checkButton = document.querySelector('.check');
 const againButton = document.querySelector('.again');
 const guessElement = document.querySelector('.guess');
+const highScoreElement = document.querySelector('.highscore');
+let highScore = 0;
 // Event Listener for Check Button
 checkButton.addEventListener('click', function () {
   // Value is String, Convert to Number
@@ -27,10 +29,16 @@ checkButton.addEventListener('click', function () {
     rangeNumber.textContent = secretNumber;
     // Adds inline style to body
     document.querySelector('body').style.backgroundColor = '#60b347';
+    highScoreElement.style.color = 'white';
     // Hide Guess Input and Check Button - Show Again Button
     guessElement.style.display = 'none';
     checkButton.style.display = 'none';
     againButton.style.visibility = 'visible';
+    // Update High Score
+    if (score > highScore) {
+      highScore = score;
+      highScoreElement.textContent = highScore;
+    }
   } else if (guess > secretNumber * 2 && score > 1) {
     // When Guess is too high
     message.textContent = 'Too High!';
@@ -71,6 +79,8 @@ againButton.addEventListener('click', function () {
   guessElement.value = '';
   // Reset Styles
   document.querySelector('body').style.backgroundColor = '#222';
+  highScoreElement.style.color = '#60b347';
+  highScoreElement.textContent = highScore;
   // Generate Random Number between 1 and 20
   secretNumber = Math.trunc(Math.random() * 20) + 1;
   // Show Guess Input and Check Button - Hide Again Button
