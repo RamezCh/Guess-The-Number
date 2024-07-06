@@ -53,6 +53,8 @@ main {
 }
 
 .up {
+  display: flex;
+  justify-content: space-between;
   font-size: 2rem;
 }
 
@@ -78,7 +80,7 @@ h1 {
   content: '';
   position: absolute;
   top: 50%;
-  width: 100%;
+  width: 300%;
   height: 7px;
   background: #eee;
 }
@@ -129,6 +131,20 @@ h1 {
 .label-score,
 .label-highscore {
   margin-bottom: 1rem;
+}
+
+.score,
+.highscore {
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+.score {
+  color: red;
+}
+
+.highscore {
+  color: #60b347;
 }
 
 /* RESPONSIVE DESIGN */
