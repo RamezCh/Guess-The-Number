@@ -24,7 +24,9 @@ checkButton.addEventListener('click', function () {
     // When Player Wins
     message.textContent = 'Correct Guess! 🎉';
     rangeNumber.textContent = secretNumber;
+    // Adds inline style to body
     document.querySelector('body').style.backgroundColor = '#60b347';
+    // Adds inline style to number
     rangeNumber.style.width = '30rem';
   } else if (guess > secretNumber * 2 && score > 1) {
     // When Guess is too high
