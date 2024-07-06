@@ -19,5 +19,13 @@ checkButton.addEventListener('click', function () {
   // If No Number, we get 0 which is Falsy value
   if (!guess) {
     message.textContent = 'No Number Entered!';
+  } else if (guess === secretNumber) {
+    message.textContent = 'Correct Guess! 🎉';
+    rangeNumber.textContent = secretNumber;
+    document.querySelector('body').style.backgroundColor = '#60b347';
+  } else if (guess > secretNumber) {
+    message.textContent = 'Too High!';
+  } else {
+    message.textContent = 'Too Low!';
   }
 });
