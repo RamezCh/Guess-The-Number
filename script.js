@@ -1,17 +1,23 @@
 'use strict';
-
+// Guess My Number!
 const message = document.querySelector('header h1');
+// 1 < ? < 20
 const rangeNumber = document.querySelector('.number');
+// Score: 20
 const score = document.querySelector('.score');
-const guess = document.querySelector('.guess');
-
-console.log(message.textContent);
-console.log(rangeNumber.textContent);
-console.log(score.textContent);
-console.log(guess.value);
-
+// Generate Random Number between 1 and 20
+// Math.random() generates number between 0 and 1
+// Math.trunc() removes decimal part
+const secretNumber = Math.trunc(Math.random() * 20) + 1;
 const checkButton = document.querySelector('.check');
+const againButton = document.querySelector('.again');
+// Event Listener for Check Button
 checkButton.addEventListener('click', function () {
-  console.log('Button clicked');
-  console.log(guess.value);
+  // Value is String, Convert to Number
+  const guess = Number(document.querySelector('.guess').value);
+  console.log(guess, typeof guess);
+  // If No Number, we get 0 which is Falsy value
+  if (!guess) {
+    message.textContent = 'No Number Entered!';
+  }
 });
