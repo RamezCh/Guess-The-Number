@@ -15,7 +15,8 @@ const againButton = document.querySelector('.again');
 // Event Listener for Check Button
 checkButton.addEventListener('click', function () {
   // Value is String, Convert to Number
-  const guess = Number(document.querySelector('.guess').value);
+  const guessElement = document.querySelector('.guess');
+  const guess = Number(guessElement.value);
   console.log(guess, typeof guess);
   // If No Number, we get 0 which is Falsy value
   if (!guess) {
@@ -52,5 +53,26 @@ checkButton.addEventListener('click', function () {
     // When Player Loses
     message.textContent = 'You Lost the Game!';
     scoreElement.textContent = 0;
+    guessElement.style.display = 'none';
+    checkButton.style.display = 'none';
+    againButton.style.visibility = 'visible';
   }
+});
+
+againButton.addEventListener('click', function () {
+  // Reset the Game
+  score = 5;
+  scoreElement.textContent = score;
+  message.textContent = 'Guess My Number!';
+  rangeNumber.textContent = '1 < ? < 20';
+  guessElement.value = '';
+  // Reset Styles
+  document.querySelector('body').style.backgroundColor = '#222';
+  rangeNumber.style.width = '15rem';
+  // Generate Random Number between 1 and 20
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  // Show Guess Input and Check Button - Hide Again Button
+  guessElement.style.display = 'inline-block';
+  checkButton.style.display = 'inline-block';
+  againButton.style.visibility = 'hidden';
 });
