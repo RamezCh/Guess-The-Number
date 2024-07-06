@@ -80,7 +80,7 @@ h1 {
   content: '';
   position: absolute;
   top: 50%;
-  width: 300%;
+  width: 1200px;
   height: 7px;
   background: #eee;
 }
