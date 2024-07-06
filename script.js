@@ -53,16 +53,20 @@ function handleGuess(guess) {
   } else if (guess === secretNumber) {
     displayMessage('Correct Guess! 🎉');
     rangeNumber.textContent = secretNumber;
+    // Vicotry Styles
     document.querySelector('body').style.backgroundColor = '#60b347';
     highScoreElement.style.color = 'white';
+    // Show Again Button - Hide Input and Check Button
     guessElement.style.display = 'none';
     checkButton.style.display = 'none';
     againButton.style.visibility = 'visible';
+    // Update High Score
     if (score > highScore) {
       highScore = score;
       highScoreElement.textContent = highScore;
     }
   } else {
+    // Check if the guess is too high or too low
     let message = '';
     if (guess > secretNumber * 2) {
       message = 'Too High!';
@@ -79,6 +83,7 @@ function handleGuess(guess) {
     } else {
       displayMessage('You Lost the Game!');
       updateScore(0);
+      // Show Again Button - Hide Input and Check Button
       guessElement.style.display = 'none';
       checkButton.style.display = 'none';
       againButton.style.visibility = 'visible';
